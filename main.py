@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Automatización de Compresión de Archivos v1.0.9
+Automatización de Compresión de Archivos v1.0.10
 Aplicación avanzada para comprimir archivos automáticamente con interfaz gráfica
 Incluye sistema de actualizaciones automáticas y configuración personalizable
 """

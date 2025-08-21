@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.9")
+        self.root.title("Automatización de Compresión de Archivos v1.0.10")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
