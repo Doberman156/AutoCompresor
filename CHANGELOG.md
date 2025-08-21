@@ -11,6 +11,47 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.20] - 2025-08-21
+
+### 🔧 Corrección Crítica de Inconsistencias de Versión
+
+#### 📋 Sincronización Completa de Versiones
+- **Problema crítico resuelto**: Eliminadas todas las inconsistencias de versión en el proyecto
+- **Archivos sincronizados**: version.json, gui/main_window.py, main.py, core/config_manager.py, gui/update_dialog.py, README.md, build.py, MANUAL_USUARIO.md
+- **Versiones unificadas**: Todas las referencias ahora apuntan consistentemente a v1.0.20
+- **Experiencia de usuario**: Información de versión coherente en toda la aplicación (ventana, diálogos, documentación)
+
+#### ⚡ Mejoras de Estabilidad
+- **Versionado consistente**: Eliminadas referencias a versiones obsoletas (v1.0, v1.0.1, v1.0.16, v1.0.17, v1.0.18, v1.0.19)
+- **Interfaz unificada**: Título de ventana, diálogo "Acerca de", sistema de actualizaciones y documentación sincronizados
+- **Mantenimiento simplificado**: Facilita futuras actualizaciones de versión
+- **Calidad del código**: Eliminadas inconsistencias que causaban confusión en desarrollo y producción
+
+#### 🚀 Preparación para Producción
+- **Verificación exhaustiva**: Todas las referencias de versión validadas antes del release
+- **Documentación actualizada**: README.md, MANUAL_USUARIO.md y build.py con versión correcta
+- **Sistema de build**: Configuración de compilación actualizada a v1.0.20
+- **Release estable**: Versión completamente consistente lista para distribución
+
+### 🔍 Archivos Actualizados
+- **version.json**: Versión principal actualizada a 1.0.20
+- **gui/main_window.py**: Título de ventana y diálogo "Acerca de" sincronizados
+- **main.py**: Comentarios de encabezado y mensajes de inicio actualizados
+- **core/config_manager.py**: Comentarios y versión de exportación actualizados
+- **gui/update_dialog.py**: Versión actual en diálogo de actualizaciones
+- **README.md**: Badge de versión actualizado
+- **build.py**: Información de distribución actualizada
+- **MANUAL_USUARIO.md**: Historial de versiones actualizado
+
+### 🚀 Características Técnicas
+- **Ejecutable**: AutomatizacionCompresion.exe (estimado 32+ MB)
+- **Compatibilidad**: Windows 10/11 (64-bit)
+- **Versión unificada**: 1.0.20 en todos los componentes
+- **Sistema de Release**: Completamente sincronizado y listo para producción
+- **Calidad**: Versión estable sin inconsistencias
+
+---
+
 ## [1.0.18] - 2025-08-21
 
 ### 🔧 Correcciones de Sincronización

@@ -202,7 +202,7 @@ def create_distribution_info():
 
 Para reportar problemas o sugerencias, contacta al desarrollador.
 
-Versión: 1.0.0
+Versión: 1.0.20
 Fecha de construcción: {}
 """.format(Path().cwd().name)
     

@@ -188,7 +188,7 @@ Incluye la siguiente información:
 
 ## 🔄 Historial de Versiones
 
-### Versión 1.0.0 (Actual)
+### Versión 1.0.20 (Actual)
 - ✨ Lanzamiento inicial
 - 🎨 Interfaz gráfica moderna
 - ⚙️ Sistema de perfiles

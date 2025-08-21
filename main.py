@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Automatización de Compresión de Archivos v1.0.18
+Automatización de Compresión de Archivos v1.0.20
 Aplicación avanzada para comprimir archivos automáticamente con interfaz gráfica
 Incluye sistema de actualizaciones automáticas y configuración personalizable
 """
@@ -170,7 +170,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 def main():
     """Función principal de la aplicación."""
     try:
-        print("Iniciando Automatización de Compresión de Archivos v1.0...")
+        print("Iniciando Automatización de Compresión de Archivos v1.0.20...")
         
         # Verificaciones iniciales
         print("Verificando versión de Python...")

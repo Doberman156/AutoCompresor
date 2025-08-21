@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.18")
+        self.root.title("Automatización de Compresión de Archivos v1.0.20")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -1084,7 +1084,7 @@ Tipos de archivo encontrados:
     
     def show_about(self):
         """Muestra información sobre la aplicación."""
-        about_text = """Automatización de Compresión de Archivos v1.0.18
+        about_text = """Automatización de Compresión de Archivos v1.0.20
 
 Desarrollado para automatizar el proceso de compresión de archivos
 con nomenclatura personalizable y gestión inteligente de respaldos.

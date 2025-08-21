@@ -88,7 +88,7 @@ class UpdateNotificationDialog:
         
         # Versión actual vs nueva
         ttk.Label(version_frame, text="Versión Actual:", font=('Segoe UI', 9, 'bold')).grid(row=0, column=0, sticky=tk.W, padx=(0, 10))
-        ttk.Label(version_frame, text="v1.0.18").grid(row=0, column=1, sticky=tk.W)
+        ttk.Label(version_frame, text="v1.0.20").grid(row=0, column=1, sticky=tk.W)
         
         ttk.Label(version_frame, text="Nueva Versión:", font=('Segoe UI', 9, 'bold')).grid(row=1, column=0, sticky=tk.W, padx=(0, 10), pady=(5, 0))
         new_version_label = ttk.Label(version_frame, text=f"v{self.update_info.version}", foreground='green')

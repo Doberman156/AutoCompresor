@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Gestor Avanzado de Configuración - Automatización de Compresión de Archivos v1.0.18
+Gestor Avanzado de Configuración - Automatización de Compresión de Archivos v1.0.20
 
 Este módulo maneja la carga, guardado y gestión inteligente de configuraciones y perfiles
 de usuario para la aplicación de automatización de compresión.
@@ -258,7 +258,7 @@ class ConfigManager:
                 "profile_name": profile_name,
                 "profile_data": profile,
                 "export_date": datetime.now().isoformat(),
-                "app_version": "1.0.0"
+                "app_version": "1.0.20"
             }
             
             with open(export_path, 'w', encoding='utf-8') as f:
