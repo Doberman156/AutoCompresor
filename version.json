@@ -1,12 +1,12 @@
 {
-  "version": "1.0.21",
+  "version": "1.0.20",
   "build_date": "2025-08-21",
   "build_number": 1755761846,
-  "release_notes": "Versión 1.0.21 con mejoras y correcciones",
+  "release_notes": "Versión 1.0.20 - Corrección completa de inconsistencias de versión",
   "changelog": [
-    "✨ Mejoras en la interfaz de usuario",
-    "🐛 Correcciones de errores menores",
-    "⚡ Optimizaciones de rendimiento",
-    "🔒 Mejoras de seguridad"
+    "🔧 Corrección completa de inconsistencias de versión en toda la aplicación",
+    "🐛 Solución de errores en show_statistics y show_manual",
+    "📝 Sincronización de versiones en GUI, código fuente y documentación",
+    "✅ Estabilización del sistema de actualizaciones"
   ]
 }
