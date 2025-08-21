@@ -19,6 +19,34 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.5] - 2025-08-20
+
+### 🔧 Correcciones y Mejoras
+
+#### 🐛 Correcciones de Errores
+- **Corrección Unicode:** Solucionado error UnicodeEncodeError en build.py para compatibilidad con Windows
+- **Caracteres ASCII:** Reemplazados emojis Unicode por caracteres ASCII compatibles con cp1252
+- **Compilación:** Eliminados errores de codificación durante el proceso de build
+
+#### ⚡ Mejoras del Sistema
+- **Sistema de Releases:** Optimizado el proceso de creación automática de releases
+- **Compatibilidad Windows:** Mejorada la compatibilidad con terminales de Windows
+- **Proceso de Build:** Automatización completa del proceso de compilación
+- **Gestión de Versiones:** Mejorado el sistema de versionado automático
+
+#### 📦 Optimizaciones
+- **Script de Compilación:** Optimizado build.py para mejor rendimiento
+- **Mensajes de Estado:** Mejorados los mensajes informativos durante la compilación
+- **Manejo de Errores:** Mejor gestión de errores durante el proceso de build
+
+### 🚀 Características Técnicas
+- **Ejecutable:** AutomatizacionCompresion.exe (32.4 MB)
+- **Compatibilidad:** Windows 10/11 (64-bit)
+- **Codificación:** Totalmente compatible con cp1252
+- **Build System:** Proceso automatizado sin errores
+
+---
+
 ## [1.0.0] - 2024-01-20
 
 ### 🎉 Lanzamiento Inicial
