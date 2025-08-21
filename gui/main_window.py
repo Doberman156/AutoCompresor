@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.14")
+        self.root.title("Automatización de Compresión de Archivos v1.0.16")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -1040,6 +1040,48 @@ Tipos de archivo encontrados:
         s = round(size_bytes / p, 2)
         return f"{s} {size_names[i]}"
 
+    def show_manual(self):
+        """Muestra el manual de usuario de la aplicación."""
+        import webbrowser
+        import os
+        
+        manual_path = Path("MANUAL_USUARIO.md")
+        
+        if manual_path.exists():
+            try:
+                # Intentar abrir con el navegador predeterminado
+                webbrowser.open(f"file:///{manual_path.absolute()}")
+                self.status_label.config(text="Manual de usuario abierto en el navegador")
+            except Exception as e:
+                # Si falla, mostrar contenido en un diálogo
+                try:
+                    with open(manual_path, 'r', encoding='utf-8') as f:
+                        content = f.read()[:2000]  # Primeros 2000 caracteres
+                    
+                    manual_window = tk.Toplevel(self.root)
+                    manual_window.title("📖 Manual de Usuario")
+                    manual_window.geometry("800x600")
+                    
+                    text_widget = tk.Text(manual_window, wrap=tk.WORD, padx=10, pady=10)
+                    scrollbar = ttk.Scrollbar(manual_window, orient="vertical", command=text_widget.yview)
+                    text_widget.configure(yscrollcommand=scrollbar.set)
+                    
+                    text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+                    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+                    
+                    text_widget.insert(tk.END, content)
+                    text_widget.config(state=tk.DISABLED)
+                    
+                except Exception as e2:
+                    messagebox.showerror("Error", f"No se pudo abrir el manual: {e2}")
+        else:
+            messagebox.showwarning(
+                "Manual no encontrado", 
+                "El archivo MANUAL_USUARIO.md no se encuentra disponible.\n\n"
+                "Puede descargar la documentación completa desde:\n"
+                "https://github.com/Doberman156/AutoCompresor/blob/main/MANUAL_USUARIO.md"
+            )
+    
     def show_about(self):
         """Muestra información sobre la aplicación."""
         about_text = """Automatización de Compresión de Archivos v1.0

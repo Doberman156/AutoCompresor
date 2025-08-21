@@ -19,6 +19,34 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.16] - 2025-08-21
+
+### 🐛 Correcciones Críticas
+- **Error show_manual corregido**: Solucionado error "'MainWindow' object has no attribute 'show_manual'"
+- **Método agregado**: Implementado método show_manual para mostrar el manual de usuario
+- **Funcionalidad del menú**: Corregida funcionalidad completa del menú de ayuda
+- **Estabilidad mejorada**: Eliminados errores de inicialización de la aplicación
+
+### 📖 Nuevas Características
+- **Manual de usuario**: Nuevo método para abrir MANUAL_USUARIO.md
+- **Navegador integrado**: Apertura automática del manual en el navegador predeterminado
+- **Ventana de respaldo**: Diálogo alternativo si falla la apertura en navegador
+- **Enlaces de ayuda**: Redirección a documentación online si el archivo local no existe
+
+### 🔧 Mejoras Técnicas
+- **Versión sincronizada**: Actualizada a v1.0.16 en todos los archivos del proyecto
+- **Manejo de errores**: Mejor gestión de errores al abrir archivos de documentación
+- **Interfaz robusta**: Eliminados errores de atributos faltantes en la interfaz
+- **Compatibilidad**: Soporte mejorado para diferentes sistemas de archivos
+
+### 🚀 Características Técnicas
+- **Ejecutable**: AutomatizacionCompresion.exe (32.4 MB)
+- **Compatibilidad**: Windows 10/11 (64-bit)
+- **Sistema de actualizaciones**: Completamente funcional
+- **Corrección crítica**: Aplicación inicia sin errores
+
+---
+
 ## [1.0.12] - 2025-01-21
 
 ### 🎨 Mejoras de Interfaz
