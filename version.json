@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "build_date": "2024-01-20",
+  "build_number": 1705708800,
+  "release_notes": "Versión inicial con sistema de actualizaciones automáticas",
+  "changelog": [
+    "✨ Sistema de compresión automática de archivos",
+    "🎨 Interfaz gráfica moderna e intuitiva",
+    "⚙️ Gestión avanzada de perfiles de configuración",
+    "🔄 Sistema de actualizaciones automáticas",
+    "📊 Estadísticas detalladas de procesamiento",
+    "🛡️ Validación y respaldo automático de archivos",
+    "📁 Soporte para múltiples formatos de compresión",
+    "🎯 Patrones de nomenclatura personalizables",
+    "🔍 Filtros avanzados de archivos",
+    "💾 Configuración portable y exportable"
+  ],
+  "features": {
+    "compression": {
+      "formats_supported": ["zip", "7z", "rar"],
+      "batch_processing": true,
+      "progress_tracking": true
+    },
+    "ui": {
+      "modern_interface": true,
+      "drag_drop_support": true,
+      "real_time_preview": true
+    },
+    "updates": {
+      "automatic_check": true,
+      "background_download": true,
+      "rollback_support": true
+    },
+    "profiles": {
+      "multiple_profiles": true,
+      "import_export": true,
+      "validation": true
+    }
+  },
+  "system_requirements": {
+    "os": "Windows 10/11",
+    "architecture": "x64",
+    "memory": "4GB RAM mínimo",
+    "storage": "100MB espacio libre",
+    "additional": "Conexión a internet para actualizaciones"
+  },
+  "metadata": {
+    "app_name": "Automatización de Compresión",
+    "app_description": "Herramienta avanzada para automatizar la compresión de archivos con interfaz gráfica moderna",
+    "author": "Tu Nombre",
+    "license": "MIT",
+    "website": "https://github.com/TU-USUARIO/automatizacion-compresion",
+    "support_email": "soporte@tudominio.com"
+  }
+}

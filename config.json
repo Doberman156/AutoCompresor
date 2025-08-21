@@ -1,0 +1,136 @@
+{
+  "profiles": {
+    "default": {
+      "backup_folder": "C:/Users/Usuario/Desktop/respaldo",
+      "naming_pattern": "personalizado",
+      "custom_pattern": "",
+      "include_subfolders": false,
+      "file_filters": [
+        "*"
+      ],
+      "compression_level": 6,
+      "conflict_resolution": "rename",
+      "verify_integrity": true,
+      "last_modified": "2025-08-20T21:16:02.395499"
+    },
+    "trabajo": {
+      "naming_pattern": "archivo_fecha",
+      "backup_folder": "./respaldo_trabajo",
+      "include_subfolders": true,
+      "file_filters": [
+        "*.pdf",
+        "*.docx",
+        "*.xlsx"
+      ],
+      "compression_level": 9,
+      "conflict_resolution": "rename"
+    },
+    "personal": {
+      "naming_pattern": "contador_archivo",
+      "backup_folder": "./respaldo_personal",
+      "include_subfolders": false,
+      "file_filters": [
+        "*.jpg",
+        "*.png",
+        "*.pdf"
+      ],
+      "compression_level": 6,
+      "conflict_resolution": "ask"
+    },
+    "facturas": {
+      "backup_folder": "C:/Users/Usuario/Desktop/respaldo4",
+      "naming_pattern": "nombre_original",
+      "custom_pattern": "",
+      "include_subfolders": false,
+      "file_filters": [
+        "*"
+      ],
+      "compression_level": 6,
+      "conflict_resolution": "ask",
+      "verify_integrity": true,
+      "last_modified": "2025-08-20T12:25:58.070667"
+    }
+  },
+  "app_settings": {
+    "log_level": "INFO",
+    "max_log_files": 30,
+    "theme": "default",
+    "window_size": "1024x768",
+    "auto_backup": true,
+    "verify_integrity": true,
+    "show_progress": true
+  },
+  "updates": {
+    "auto_check": true,
+    "auto_download": false,
+    "auto_install": false,
+    "check_frequency_hours": 24,
+    "backup_enabled": true,
+    "verify_signatures": false,
+    "allow_prereleases": false,
+    "update_server_url": "https://api.github.com/repos/TU-USUARIO/automatizacion-compresion/releases",
+    "update_check_url": "https://api.github.com/repos/TU-USUARIO/automatizacion-compresion/releases/latest",
+    "download_base_url": "https://github.com/TU-USUARIO/automatizacion-compresion/releases/download",
+    "repository_url": "https://github.com/TU-USUARIO/automatizacion-compresion",
+    "last_check": null,
+    "dismissed_versions": [],
+    "_instructions": {
+      "setup": "Para configurar actualizaciones automáticas:",
+      "step1": "1. Reemplaza 'TU-USUARIO' con tu nombre de usuario de GitHub",
+      "step2": "2. Si tu repositorio tiene otro nombre, cámbialo también",
+      "step3": "3. Asegúrate de que el repositorio sea público",
+      "step4": "4. Crea releases en GitHub para que aparezcan actualizaciones",
+      "example": "Ejemplo: https://api.github.com/repos/juan123/mi-compresor/releases"
+    }
+  },
+  "naming_patterns": {
+    "fecha_archivo": "{fecha}_{nombre_original}",
+    "archivo_fecha": "{nombre_original}_{fecha}",
+    "contador_archivo": "{contador:03d}_{nombre_original}",
+    "timestamp_archivo": "{timestamp}_{nombre_original}",
+    "factura_sop": "{numero_factura}_SOP_{contador}",
+    "nombre_original": "{nombre_original}",
+    "personalizado": "{patron_personalizado}"
+  },
+  "conflict_resolutions": {
+    "rename": "Renombrar automáticamente",
+    "overwrite": "Sobrescribir archivo existente",
+    "skip": "Saltar archivo",
+    "ask": "Preguntar al usuario"
+  },
+  "file_filters_presets": {
+    "todos": [
+      "*"
+    ],
+    "documentos": [
+      "*.pdf",
+      "*.doc",
+      "*.docx",
+      "*.txt",
+      "*.rtf"
+    ],
+    "imagenes": [
+      "*.jpg",
+      "*.jpeg",
+      "*.png",
+      "*.gif",
+      "*.bmp",
+      "*.tiff"
+    ],
+    "office": [
+      "*.xlsx",
+      "*.xls",
+      "*.pptx",
+      "*.ppt",
+      "*.docx",
+      "*.doc"
+    ],
+    "archivos": [
+      "*.zip",
+      "*.rar",
+      "*.7z",
+      "*.tar",
+      "*.gz"
+    ]
+  }
+}

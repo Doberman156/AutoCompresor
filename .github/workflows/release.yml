@@ -1,0 +1,216 @@
+name: 🚀 Crear Release Automático
+
+# Se ejecuta cuando se crea un nuevo tag que empiece con 'v'
+on:
+  push:
+    tags:
+      - 'v*'
+
+# Permisos necesarios para crear releases
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  create-release:
+    name: 📦 Crear Release
+    runs-on: windows-latest
+    
+    steps:
+    # 1. Checkout del código
+    - name: 📥 Descargar código
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    # 2. Configurar Python
+    - name: 🐍 Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    # 3. Instalar dependencias
+    - name: 📦 Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+    
+    # 4. Compilar aplicación
+    - name: 🔨 Compilar aplicación
+      run: |
+        python build.py
+    
+    # 5. Verificar que el ejecutable existe
+    - name: ✅ Verificar ejecutable
+      run: |
+        if (Test-Path "dist\AutomatizacionCompresion.exe") {
+          Write-Host "✅ Ejecutable creado correctamente"
+          $size = (Get-Item "dist\AutomatizacionCompresion.exe").Length / 1MB
+          Write-Host "📏 Tamaño: $([math]::Round($size, 2)) MB"
+        } else {
+          Write-Host "❌ Error: No se encontró el ejecutable"
+          exit 1
+        }
+    
+    # 6. Obtener información de la versión
+    - name: 📋 Obtener información de versión
+      id: version
+      run: |
+        $tag = "${{ github.ref_name }}"
+        $version = $tag -replace '^v', ''
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+        echo "tag=$tag" >> $env:GITHUB_OUTPUT
+        
+        # Leer información adicional de version.json si existe
+        if (Test-Path "version.json") {
+          $versionData = Get-Content "version.json" | ConvertFrom-Json
+          $releaseNotes = $versionData.release_notes
+          $buildDate = $versionData.build_date
+          echo "release_notes=$releaseNotes" >> $env:GITHUB_OUTPUT
+          echo "build_date=$buildDate" >> $env:GITHUB_OUTPUT
+        } else {
+          echo "release_notes=Nueva versión con mejoras y correcciones" >> $env:GITHUB_OUTPUT
+          echo "build_date=$(Get-Date -Format 'yyyy-MM-dd')" >> $env:GITHUB_OUTPUT
+        }
+    
+    # 7. Crear archivo ZIP con el ejecutable
+    - name: 📦 Crear archivo ZIP
+      run: |
+        $version = "${{ steps.version.outputs.version }}"
+        $zipName = "AutomatizacionCompresion-v$version-Windows.zip"
+        
+        # Crear carpeta temporal
+        New-Item -ItemType Directory -Path "release-temp" -Force
+        
+        # Copiar ejecutable
+        Copy-Item "dist\AutomatizacionCompresion.exe" "release-temp\"
+        
+        # Copiar archivos adicionales si existen
+        if (Test-Path "README.md") {
+          Copy-Item "README.md" "release-temp\"
+        }
+        if (Test-Path "LICENCIA.txt") {
+          Copy-Item "LICENCIA.txt" "release-temp\"
+        }
+        if (Test-Path "CHANGELOG.md") {
+          Copy-Item "CHANGELOG.md" "release-temp\"
+        }
+        
+        # Crear archivo de instrucciones
+        @"
+        🚀 Automatización de Compresión de Archivos v$version
+        
+        📋 INSTRUCCIONES DE INSTALACIÓN:
+        
+        1. Extrae todos los archivos de este ZIP
+        2. Ejecuta AutomatizacionCompresion.exe
+        3. La aplicación se iniciará automáticamente
+        
+        📝 CARACTERÍSTICAS:
+        • Compresión automática de archivos
+        • Múltiples formatos soportados
+        • Interfaz gráfica intuitiva
+        • Sistema de actualizaciones automáticas
+        • Gestión de perfiles de configuración
+        
+        🔄 ACTUALIZACIONES:
+        La aplicación verificará automáticamente si hay nuevas versiones disponibles.
+        
+        📞 SOPORTE:
+        Si encuentras algún problema, reporta un issue en:
+        https://github.com/TU-USUARIO/automatizacion-compresion/issues
+        
+        📅 Fecha de compilación: ${{ steps.version.outputs.build_date }}
+        "@ | Out-File -FilePath "release-temp\LEEME.txt" -Encoding UTF8
+        
+        # Crear ZIP
+        Compress-Archive -Path "release-temp\*" -DestinationPath $zipName -Force
+        
+        # Verificar ZIP
+        if (Test-Path $zipName) {
+          $zipSize = (Get-Item $zipName).Length / 1MB
+          Write-Host "✅ ZIP creado: $zipName ($([math]::Round($zipSize, 2)) MB)"
+          echo "zip_name=$zipName" >> $env:GITHUB_OUTPUT
+        } else {
+          Write-Host "❌ Error al crear ZIP"
+          exit 1
+        }
+    
+    # 8. Generar notas del release
+    - name: 📝 Generar notas del release
+      id: release_notes
+      run: |
+        $version = "${{ steps.version.outputs.version }}"
+        $buildDate = "${{ steps.version.outputs.build_date }}"
+        
+        $releaseNotes = @"
+        ## 🚀 Automatización de Compresión v$version
+        
+        ### 📅 Información de la versión
+        - **Versión:** $version
+        - **Fecha de compilación:** $buildDate
+        - **Plataforma:** Windows (x64)
+        
+        ### 📦 Archivos incluidos
+        - `AutomatizacionCompresion.exe` - Aplicación principal
+        - `LEEME.txt` - Instrucciones de instalación
+        
+        ### ✨ Características principales
+        - 🗜️ Compresión automática de archivos
+        - 📁 Soporte para múltiples formatos
+        - 🎨 Interfaz gráfica moderna e intuitiva
+        - 🔄 Sistema de actualizaciones automáticas
+        - ⚙️ Gestión avanzada de perfiles
+        - 📊 Estadísticas detalladas de procesamiento
+        - 🛡️ Validación y respaldo automático
+        
+        ### 🔄 Actualizaciones automáticas
+        Esta versión incluye un sistema de actualizaciones automáticas que verificará periódicamente si hay nuevas versiones disponibles.
+        
+        ### 📥 Instalación
+        1. Descarga el archivo ZIP
+        2. Extrae todos los archivos
+        3. Ejecuta `AutomatizacionCompresion.exe`
+        
+        ### 🐛 Reportar problemas
+        Si encuentras algún error, por favor reporta un issue en el repositorio.
+        
+        ---
+        
+        **Nota:** Esta aplicación es completamente portable y no requiere instalación adicional.
+        "@
+        
+        # Guardar en archivo temporal
+        $releaseNotes | Out-File -FilePath "release-notes.md" -Encoding UTF8
+        
+        # También guardar en variable de salida (escapando caracteres especiales)
+        $escapedNotes = $releaseNotes -replace '`', '\`' -replace '"', '\"' -replace '\r?\n', '\n'
+        echo "notes=$escapedNotes" >> $env:GITHUB_OUTPUT
+    
+    # 9. Crear el release en GitHub
+    - name: 🎉 Crear Release en GitHub
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.tag }}
+        name: "🚀 Automatización de Compresión v${{ steps.version.outputs.version }}"
+        body_path: release-notes.md
+        files: |
+          ${{ steps.version.outputs.zip_name }}
+          dist/AutomatizacionCompresion.exe
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    # 10. Notificación de éxito
+    - name: ✅ Release completado
+      run: |
+        Write-Host "🎉 Release v${{ steps.version.outputs.version }} creado exitosamente!"
+        Write-Host "🔗 URL: https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.tag }}"
+        Write-Host "📦 Archivos incluidos:"
+        Write-Host "   - ${{ steps.version.outputs.zip_name }}"
+        Write-Host "   - AutomatizacionCompresion.exe"
+        Write-Host ""
+        Write-Host "📢 Los usuarios ahora pueden descargar la nueva versión!"

@@ -1,0 +1,35 @@
+# Dependencias principales
+# Interfaz gráfica moderna
+ttkthemes>=3.2.2
+
+# Manejo de imágenes para iconos
+Pillow>=9.0.0
+
+# Utilidades adicionales
+psutil>=5.9.0
+
+# Sistema de actualizaciones
+requests>=2.28.0
+packaging>=21.0
+
+# Construcción de ejecutables
+PyInstaller>=5.10.0
+altgraph>=0.17.3
+pyinstaller-hooks-contrib>=2023.3
+
+# Testing (opcional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Nota: Las siguientes librerías son parte de la biblioteca estándar de Python
+# y no necesitan instalación adicional:
+# - tkinter (interfaz gráfica)
+# - zipfile (compresión)
+# - logging (sistema de logs)
+# - pathlib (manejo de rutas)
+# - configparser (configuración)
+# - threading (hilos)
+# - os (sistema operativo)
+# - shutil (operaciones de archivos)
+# - datetime (fechas y horas)
+# - json (manejo de JSON)

@@ -1,0 +1,1 @@
+# Core Package - Lógica principal de la aplicación
