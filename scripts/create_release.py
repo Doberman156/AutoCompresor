@@ -223,7 +223,7 @@ class ReleaseManager:
         print("=" * 50)
         print(f"🎉 Release v{new_version} creado exitosamente!")
         print(f"🔗 GitHub Actions se ejecutará automáticamente")
-        print(f"📥 URL del release: https://github.com/TU-USUARIO/automatizacion-compresion/releases/tag/v{new_version}")
+        print(f"📥 URL del release: https://github.com/Doberman156/AutoCompresor/releases/tag/v{new_version}")
         print()
         print("📋 Próximos pasos:")
         print("1. Ve a GitHub y verifica que GitHub Actions se esté ejecutando")
