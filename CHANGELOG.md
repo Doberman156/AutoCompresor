@@ -19,6 +19,29 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.7] - 2025-08-20
+
+### 🔧 Correcciones de Configuración
+
+#### 🔗 Corrección de URLs
+- **Script de Release:** Corregida URL incorrecta en create_release.py
+- **GitHub Integration:** Actualizada URL de 'TU-USUARIO/automatizacion-compresion' a 'Doberman156/AutoCompresor'
+- **Release Links:** Los enlaces de release ahora apuntan al repositorio correcto
+- **Sistema de Actualizaciones:** URLs de verificación actualizadas correctamente
+
+#### ⚡ Mejoras Menores
+- **Mensajes de Release:** Mejorados los mensajes informativos durante la creación de releases
+- **Validación de URLs:** Agregada validación para evitar URLs incorrectas en el futuro
+- **Documentación:** Actualizada documentación con URLs correctas
+
+### 🚀 Características Técnicas
+- **Ejecutable:** AutomatizacionCompresion.exe (32.4 MB)
+- **Compatibilidad:** Windows 10/11 (64-bit)
+- **URLs Corregidas:** Todas las referencias apuntan al repositorio correcto
+- **Sistema de Release:** Completamente funcional con URLs correctas
+
+---
+
 ## [1.0.5] - 2025-08-20
 
 ### 🔧 Correcciones y Mejoras

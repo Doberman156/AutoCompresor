@@ -1,8 +1,8 @@
 {
-  "version": "1.0.7",
+  "version": "1.0.8",
   "build_date": "2025-08-20",
-  "build_number": 1755750687,
-  "release_notes": "Versión 1.0.7 con mejoras y correcciones",
+  "build_number": 1755750892,
+  "release_notes": "Versión 1.0.8 con mejoras y correcciones",
   "changelog": [
     "✨ Mejoras en la interfaz de usuario",
     "🐛 Correcciones de errores menores",
