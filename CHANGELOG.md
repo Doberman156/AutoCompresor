@@ -19,6 +19,33 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.12] - 2025-01-21
+
+### 🎨 Mejoras de Interfaz
+- **Iconos renovados**: Agregados iconos emoji a todos los elementos de la interfaz
+- **Mensajes mejorados**: Etiquetas más descriptivas y claras para el usuario
+- **Botones de control**: Nuevos botones de Pausar ⏸️ y Detener ⏹️ para mejor control
+- **Menús actualizados**: Iconos en todos los menús (Archivo 📁, Herramientas 🔧, Ayuda ❓)
+
+### ✨ Nuevas Funcionalidades
+- **Estadísticas de uso**: Nueva opción en el menú de herramientas 📊
+- **Manual de usuario**: Acceso directo desde el menú de ayuda 📖
+- **Controles avanzados**: Botones adicionales para pausar y detener procesos
+- **Interfaz más intuitiva**: Mejores descripciones y guías visuales
+
+### 🔧 Mejoras Técnicas
+- **Versión sincronizada**: Actualizada a v1.0.12 en todos los archivos
+- **Código optimizado**: Comentarios y documentación mejorados
+- **Interfaz consistente**: Estilo unificado en toda la aplicación
+
+### 🚀 Características Técnicas
+- **Ejecutable**: AutomatizacionCompresion.exe
+- **Compatibilidad**: Windows 10/11 (64-bit)
+- **Sistema de actualizaciones**: Completamente funcional
+- **Interfaz renovada**: Más moderna y fácil de usar
+
+---
+
 ## [1.0.9] - 2025-01-20
 
 ### ✨ Mejoras

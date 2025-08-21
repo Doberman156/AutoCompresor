@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.10")
+        self.root.title("Automatización de Compresión de Archivos v1.0.12")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -113,26 +113,28 @@ class MainWindow:
         
         # Menú Archivo
         file_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Archivo", menu=file_menu)
-        file_menu.add_command(label="Nuevo Perfil", command=self.new_profile)
-        file_menu.add_command(label="Importar Perfil", command=self.import_profile)
-        file_menu.add_command(label="Exportar Perfil", command=self.export_profile)
+        menubar.add_cascade(label="📁 Archivo", menu=file_menu)
+        file_menu.add_command(label="➕ Nuevo Perfil", command=self.new_profile)
+        file_menu.add_command(label="📥 Importar Perfil", command=self.import_profile)
+        file_menu.add_command(label="📤 Exportar Perfil", command=self.export_profile)
         file_menu.add_separator()
-        file_menu.add_command(label="Salir", command=self.on_closing)
+        file_menu.add_command(label="❌ Salir", command=self.on_closing)
         
         # Menú Herramientas
         tools_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Herramientas", menu=tools_menu)
-        tools_menu.add_command(label="Limpiar Logs", command=self.clean_logs)
-        tools_menu.add_command(label="Verificar Sistema", command=self.check_system)
+        menubar.add_cascade(label="🔧 Herramientas", menu=tools_menu)
+        tools_menu.add_command(label="🧹 Limpiar Logs", command=self.clean_logs)
+        tools_menu.add_command(label="🔍 Verificar Sistema", command=self.check_system)
+        tools_menu.add_command(label="📊 Estadísticas de Uso", command=self.show_statistics)
         
         # Menú Ayuda
         help_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Ayuda", menu=help_menu)
-        help_menu.add_command(label="Buscar Actualizaciones", command=self.check_for_updates_manual)
-        help_menu.add_command(label="Configurar Actualizaciones", command=self.show_update_settings)
+        menubar.add_cascade(label="❓ Ayuda", menu=help_menu)
+        help_menu.add_command(label="🔄 Buscar Actualizaciones", command=self.check_for_updates_manual)
+        help_menu.add_command(label="⚙️ Configurar Actualizaciones", command=self.show_update_settings)
         help_menu.add_separator()
-        help_menu.add_command(label="Acerca de", command=self.show_about)
+        help_menu.add_command(label="📖 Manual de Usuario", command=self.show_manual)
+        help_menu.add_command(label="ℹ️ Acerca de", command=self.show_about)
     
     def create_main_tab(self):
         """Crea la pestaña principal."""
@@ -144,19 +146,19 @@ class MainWindow:
         folders_frame.pack(fill=tk.X, padx=10, pady=5)
         
         # Carpeta origen
-        ttk.Label(folders_frame, text="Carpeta de archivos a comprimir:").grid(row=0, column=0, sticky=tk.W, pady=2)
+        ttk.Label(folders_frame, text="📁 Selecciona la carpeta con archivos a comprimir:").grid(row=0, column=0, sticky=tk.W, pady=2)
         self.source_var = tk.StringVar()
         source_entry = ttk.Entry(folders_frame, textvariable=self.source_var, width=50)
         source_entry.grid(row=0, column=1, padx=5, pady=2, sticky=tk.EW)
-        ttk.Button(folders_frame, text="Examinar", 
+        ttk.Button(folders_frame, text="🔍 Examinar", 
                   command=self.browse_source_folder).grid(row=0, column=2, padx=5, pady=2)
         
         # Carpeta de respaldo
-        ttk.Label(folders_frame, text="Carpeta de archivos comprimidos:").grid(row=1, column=0, sticky=tk.W, pady=2)
+        ttk.Label(folders_frame, text="💾 Carpeta destino para archivos comprimidos:").grid(row=1, column=0, sticky=tk.W, pady=2)
         self.backup_var = tk.StringVar()
         backup_entry = ttk.Entry(folders_frame, textvariable=self.backup_var, width=50)
         backup_entry.grid(row=1, column=1, padx=5, pady=2, sticky=tk.EW)
-        ttk.Button(folders_frame, text="Examinar", 
+        ttk.Button(folders_frame, text="🔍 Examinar", 
                   command=self.browse_backup_folder).grid(row=1, column=2, padx=5, pady=2)
         
         folders_frame.columnconfigure(1, weight=1)
@@ -167,11 +169,11 @@ class MainWindow:
         
         # Incluir subcarpetas
         self.include_subfolders_var = tk.BooleanVar()
-        ttk.Checkbutton(options_frame, text="Procesar también las subcarpetas", 
+        ttk.Checkbutton(options_frame, text="📂 Incluir subcarpetas en el procesamiento", 
                        variable=self.include_subfolders_var).grid(row=0, column=0, sticky=tk.W, pady=2)
         
         # Nivel de compresión
-        ttk.Label(options_frame, text="Nivel de compresión:").grid(row=0, column=1, padx=20, pady=2)
+        ttk.Label(options_frame, text="⚙️ Nivel de compresión:").grid(row=0, column=1, padx=20, pady=2)
         self.compression_level_var = tk.IntVar(value=6)
         compression_scale = ttk.Scale(options_frame, from_=0, to=9, 
                                     variable=self.compression_level_var, orient=tk.HORIZONTAL)
@@ -194,16 +196,16 @@ class MainWindow:
         control_frame.pack(fill=tk.X, padx=10, pady=5)
         
         # Botones de control
-        self.start_button = ttk.Button(control_frame, text="Iniciar Compresión", 
+        self.start_button = ttk.Button(control_frame, text="🚀 Iniciar Compresión", 
                                       command=self.start_compression, style='Accent.TButton')
         self.start_button.pack(side=tk.LEFT, padx=5)
         
-        self.pause_button = ttk.Button(control_frame, text="Pausar", 
-                                      command=self.pause_compression, state=tk.DISABLED)
+        self.pause_button = ttk.Button(control_frame, text="⏸️ Pausar", 
+                                      command=self.pause_compression, state='disabled')
         self.pause_button.pack(side=tk.LEFT, padx=5)
         
-        self.stop_button = ttk.Button(control_frame, text="Detener", 
-                                     command=self.stop_compression, state=tk.DISABLED)
+        self.stop_button = ttk.Button(control_frame, text="⏹️ Detener", 
+                                     command=self.stop_compression, state='disabled')
         self.stop_button.pack(side=tk.LEFT, padx=5)
         
         # Información de archivos
