@@ -19,6 +19,21 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.9] - 2025-01-20
+
+### ✨ Mejoras
+- Mejorados los mensajes de la interfaz de usuario para mayor claridad
+- Actualizada la documentación y comentarios del código
+- Mejoradas las etiquetas descriptivas en la GUI
+- Actualizado el título de la ventana principal a v1.0.9
+
+### 🔧 Cambios Técnicos
+- Actualizados comentarios en archivos principales
+- Mejorada la documentación del ConfigManager
+- Refinados mensajes informativos del sistema
+
+---
+
 ## [1.0.7] - 2025-08-20
 
 ### 🔧 Correcciones de Configuración

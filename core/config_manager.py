@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Gestor de Configuración - Automatización de Compresión de Archivos
+Gestor Avanzado de Configuración - Automatización de Compresión de Archivos v1.0.9
 
-Este módulo maneja la carga, guardado y gestión de configuraciones y perfiles
+Este módulo maneja la carga, guardado y gestión inteligente de configuraciones y perfiles
 de usuario para la aplicación de automatización de compresión.
+Incluye validación de datos, respaldo automático y gestión de múltiples perfiles.
 """
 
 import json
@@ -15,7 +16,7 @@ from datetime import datetime
 
 
 class ConfigManager:
-    """Gestor de configuraciones y perfiles de usuario."""
+    """Gestor avanzado de configuraciones y perfiles de usuario con validación automática."""
     
     def __init__(self, config_file: str = "config.json"):
         """Inicializa el gestor de configuración.
@@ -28,7 +29,7 @@ class ConfigManager:
         self.load_config()
     
     def load_config(self) -> bool:
-        """Carga la configuración desde el archivo JSON.
+        """Carga la configuración desde el archivo JSON con validación de integridad.
         
         Returns:
             True si se cargó correctamente, False en caso contrario

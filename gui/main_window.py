@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0")
+        self.root.title("Automatización de Compresión de Archivos v1.0.9")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -144,7 +144,7 @@ class MainWindow:
         folders_frame.pack(fill=tk.X, padx=10, pady=5)
         
         # Carpeta origen
-        ttk.Label(folders_frame, text="Carpeta origen:").grid(row=0, column=0, sticky=tk.W, pady=2)
+        ttk.Label(folders_frame, text="Carpeta de archivos a comprimir:").grid(row=0, column=0, sticky=tk.W, pady=2)
         self.source_var = tk.StringVar()
         source_entry = ttk.Entry(folders_frame, textvariable=self.source_var, width=50)
         source_entry.grid(row=0, column=1, padx=5, pady=2, sticky=tk.EW)
@@ -152,7 +152,7 @@ class MainWindow:
                   command=self.browse_source_folder).grid(row=0, column=2, padx=5, pady=2)
         
         # Carpeta de respaldo
-        ttk.Label(folders_frame, text="Carpeta de respaldo:").grid(row=1, column=0, sticky=tk.W, pady=2)
+        ttk.Label(folders_frame, text="Carpeta de archivos comprimidos:").grid(row=1, column=0, sticky=tk.W, pady=2)
         self.backup_var = tk.StringVar()
         backup_entry = ttk.Entry(folders_frame, textvariable=self.backup_var, width=50)
         backup_entry.grid(row=1, column=1, padx=5, pady=2, sticky=tk.EW)
@@ -167,7 +167,7 @@ class MainWindow:
         
         # Incluir subcarpetas
         self.include_subfolders_var = tk.BooleanVar()
-        ttk.Checkbutton(options_frame, text="Incluir subcarpetas", 
+        ttk.Checkbutton(options_frame, text="Procesar también las subcarpetas", 
                        variable=self.include_subfolders_var).grid(row=0, column=0, sticky=tk.W, pady=2)
         
         # Nivel de compresión

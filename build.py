@@ -108,8 +108,13 @@ def clean_build_files():
     
     for dir_name in dirs_to_clean:
         if os.path.exists(dir_name):
-            shutil.rmtree(dir_name)
-            print_success(f"Eliminado: {dir_name}/")
+            try:
+                shutil.rmtree(dir_name)
+                print_success(f"Eliminado: {dir_name}/")
+            except PermissionError:
+                print_warning(f"No se pudo eliminar {dir_name}/ (archivo en uso). Continuando...")
+            except Exception as e:
+                print_warning(f"Error al eliminar {dir_name}/: {e}. Continuando...")
     
     # Limpiar archivos __pycache__ recursivamente
     for root, dirs, files in os.walk('.'):

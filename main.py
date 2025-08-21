@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Automatización de Compresión de Archivos - Punto de Entrada Principal
-
-Este es el archivo principal de la aplicación que inicializa todos los componentes
-y lanza la interfaz gráfica de usuario.
-
-Autor: Sistema de Automatización
-Versión: 1.0.0
-Fecha: 2024
+Automatización de Compresión de Archivos v1.0.9
+Aplicación avanzada para comprimir archivos automáticamente con interfaz gráfica
+Incluye sistema de actualizaciones automáticas y configuración personalizable
 """
 
 import sys
@@ -21,12 +16,12 @@ import logging
 # Agregar el directorio actual al path para importaciones
 sys.path.insert(0, str(Path(__file__).parent))
 
-# Configurar logging básico para errores críticos
+# Configurar sistema de logging avanzado
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('error.log', encoding='utf-8'),
+        logging.FileHandler('app.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
