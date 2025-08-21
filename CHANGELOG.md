@@ -8,6 +8,33 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 ## [Sin Publicar]
 
 ### Planificado
+
+---
+
+## [1.0.18] - 2025-08-21
+
+### 🔧 Correcciones de Sincronización
+
+#### 📋 Sincronización de Versiones
+- **Inconsistencias corregidas**: Unificadas todas las referencias de versión a 1.0.18
+- **Archivos actualizados**: main.py, gui/main_window.py, core/config_manager.py, gui/update_dialog.py
+- **Problema resuelto**: Eliminadas versiones inconsistentes (v1.0, v1.0.1, v1.0.16, v1.0.17)
+- **Interfaz unificada**: Título de ventana, diálogo "Acerca de" y todos los comentarios sincronizados
+
+#### ⚡ Mejoras Técnicas
+- **Versionado consistente**: Todas las referencias apuntan a la misma versión
+- **Experiencia de usuario**: Información de versión coherente en toda la aplicación
+- **Mantenimiento**: Facilita futuras actualizaciones de versión
+
+### 🚀 Características Técnicas
+- **Ejecutable**: AutomatizacionCompresion.exe (32+ MB)
+- **Compatibilidad**: Windows 10/11 (64-bit)
+- **Versión unificada**: 1.0.18 en todos los componentes
+- **Sistema de Release**: Completamente sincronizado
+
+---
+
+### Planificado
 - 🌐 Soporte para múltiples idiomas
 - 📱 Interfaz responsive
 - ☁️ Integración con servicios en la nube
