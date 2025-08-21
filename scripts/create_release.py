@@ -148,10 +148,7 @@ class ReleaseManager:
         if result.stdout.strip():
             print("⚠️ Hay cambios sin commit:")
             print(result.stdout)
-            response = input("¿Deseas continuar y hacer commit automáticamente? (s/n): ")
-            if response.lower() != 's':
-                print("❌ Release cancelado")
-                return False
+            print("✅ Continuando automáticamente con commit...")
         
         return True
     
@@ -204,11 +201,8 @@ class ReleaseManager:
         print(f"📈 Tipo de release: {version_type}")
         print()
         
-        # Confirmar
-        response = input(f"¿Crear release v{new_version}? (s/n): ")
-        if response.lower() != 's':
-            print("❌ Release cancelado")
-            return False
+        # Confirmar automáticamente
+        print(f"✅ Creando release v{new_version} automáticamente...")
         
         print()
         
