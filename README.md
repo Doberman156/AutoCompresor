@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Automatización de Compresión de Archivos
 
 <div align="center">
@@ -282,3 +283,7 @@ Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENS
 *Desarrollado con ❤️ por [Tu Nombre](https://github.com/TU-USUARIO)*
 
 </div>
+=======
+# AutoCompresor
+Aplicación para automatizar la compresión de archivos.
+>>>>>>> 2e56068f45042fdb1d418b5144aef41acfd21649
