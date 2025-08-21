@@ -171,19 +171,12 @@ class Updater:
             self._log('INFO', 'Verificando actualizaciones disponibles...')
             self._report_progress(10, 'Conectando al servidor de actualizaciones...')
             
-            # Construir URL de verificación
-            check_url = urljoin(self.config.update_server_url, 'check')
+            # Usar la URL de releases/latest de GitHub directamente
+            check_url = self.config.update_server_url.replace('/releases', '/releases/latest')
             
-            # Parámetros de la solicitud
-            params = {
-                'current_version': self.current_version,
-                'allow_prereleases': self.config.allow_prereleases
-            }
-            
-            # Realizar solicitud HTTP
+            # Realizar solicitud HTTP a la API de GitHub
             response = requests.get(
                 check_url,
-                params=params,
                 timeout=30,
                 headers={'User-Agent': 'AutomatizacionCompresion-Updater/1.0'}
             )
@@ -191,32 +184,51 @@ class Updater:
             
             self._report_progress(50, 'Procesando información de actualización...')
             
-            # Procesar respuesta
-            update_data = response.json()
+            # Procesar respuesta de la API de GitHub
+            release_data = response.json()
             
-            if not update_data.get('update_available', False):
+            # Extraer información del release
+            latest_version = release_data.get('tag_name', '').lstrip('v')
+            
+            if not latest_version:
                 self._log('INFO', 'No hay actualizaciones disponibles')
                 self.last_check = datetime.now()
                 self._report_progress(100, 'Verificación completada - Sin actualizaciones')
                 return None
             
-            # Crear objeto UpdateInfo
-            update_info = UpdateInfo(
-                version=update_data['version'],
-                download_url=update_data['download_url'],
-                changelog=update_data.get('changelog', ''),
-                file_size=update_data.get('file_size', 0),
-                checksum=update_data.get('checksum', ''),
-                release_date=update_data.get('release_date', ''),
-                is_critical=update_data.get('is_critical', False),
-                min_version=update_data.get('min_version', '1.0.0')
-            )
-            
             # Verificar si la versión es realmente más nueva
-            if version.parse(update_info.version) <= version.parse(self.current_version):
-                self._log('INFO', f'Versión {update_info.version} no es más nueva que {self.current_version}')
+            if version.parse(latest_version) <= version.parse(self.current_version):
+                self._log('INFO', f'Versión {latest_version} no es más nueva que {self.current_version}')
+                self.last_check = datetime.now()
+                self._report_progress(100, 'Verificación completada - Sin actualizaciones')
+                return None
+            
+            # Buscar el asset ZIP en los archivos del release
+            download_url = None
+            file_size = 0
+            
+            for asset in release_data.get('assets', []):
+                if asset['name'].endswith('.zip'):
+                    download_url = asset['browser_download_url']
+                    file_size = asset.get('size', 0)
+                    break
+            
+            if not download_url:
+                self._log('WARNING', 'No se encontró archivo ZIP en el release')
                 self.last_check = datetime.now()
                 return None
+            
+            # Crear objeto UpdateInfo
+            update_info = UpdateInfo(
+                version=latest_version,
+                download_url=download_url,
+                changelog=release_data.get('body', ''),
+                file_size=file_size,
+                checksum='',  # GitHub no proporciona checksum automáticamente
+                release_date=release_data.get('published_at', ''),
+                is_critical=False,
+                min_version='1.0.0'
+            )
             
             # Verificar versión mínima requerida
             if version.parse(self.current_version) < version.parse(update_info.min_version):

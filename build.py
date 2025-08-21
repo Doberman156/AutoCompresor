@@ -16,20 +16,20 @@ from pathlib import Path
 def print_step(message):
     """Imprime un paso del proceso con formato."""
     print(f"\n{'='*60}")
-    print(f"🔧 {message}")
+    print(f"[*] {message}")
     print(f"{'='*60}")
 
 def print_success(message):
     """Imprime mensaje de éxito."""
-    print(f"✅ {message}")
+    print(f"[OK] {message}")
 
 def print_error(message):
     """Imprime mensaje de error."""
-    print(f"❌ {message}")
+    print(f"[ERROR] {message}")
 
 def print_warning(message):
     """Imprime mensaje de advertencia."""
-    print(f"⚠️  {message}")
+    print(f"[WARNING] {message}")
 
 def check_python_version():
     """Verifica que la versión de Python sea compatible."""
@@ -40,7 +40,7 @@ def check_python_version():
         print_error("Se requiere Python 3.8 o superior.")
         return False
     
-    print_success(f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro} ✓")
+    print_success(f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro} OK")
     return True
 
 def check_dependencies():
@@ -49,7 +49,7 @@ def check_dependencies():
     
     try:
         import PyInstaller
-        print_success(f"PyInstaller {PyInstaller.__version__} ✓")
+        print_success(f"PyInstaller {PyInstaller.__version__} OK")
     except ImportError:
         print_error("PyInstaller no está instalado.")
         print("Ejecuta: pip install -r requirements.txt")
@@ -61,7 +61,7 @@ def check_dependencies():
     for dep in dependencies:
         try:
             __import__(dep)
-            print_success(f"{dep} ✓")
+            print_success(f"{dep} OK")
         except ImportError:
             print_error(f"{dep} no está disponible.")
             return False
@@ -89,13 +89,13 @@ def check_project_structure():
         if not os.path.exists(file):
             print_error(f"Archivo requerido no encontrado: {file}")
             return False
-        print_success(f"{file} ✓")
+        print_success(f"{file} OK")
     
     for dir in required_dirs:
         if not os.path.exists(dir):
             print_error(f"Directorio requerido no encontrado: {dir}")
             return False
-        print_success(f"{dir}/ ✓")
+        print_success(f"{dir}/ OK")
     
     return True
 
@@ -209,7 +209,7 @@ Fecha de construcción: {}
 
 def main():
     """Función principal del script de construcción."""
-    print("🚀 Script de Construcción - Automatización de Compresión")
+    print("[BUILD] Script de Construccion - Automatizacion de Compresion")
     print("=" * 60)
     
     # Verificaciones previas
@@ -235,14 +235,14 @@ def main():
     
     print_step("¡Construcción completada exitosamente!")
     print("")
-    print("📁 El ejecutable se encuentra en: dist/AutomatizacionCompresion.exe")
+    print("[INFO] El ejecutable se encuentra en: dist/AutomatizacionCompresion.exe")
     print("")
-    print("💡 Consejos:")
-    print("   • Puedes distribuir toda la carpeta 'dist/' como un paquete completo")
-    print("   • El ejecutable es portable y no requiere instalación")
-    print("   • Asegúrate de que el sistema de destino tenga Windows 7 o superior")
+    print("[TIPS] Consejos:")
+    print("   - Puedes distribuir toda la carpeta 'dist/' como un paquete completo")
+    print("   - El ejecutable es portable y no requiere instalacion")
+    print("   - Asegurate de que el sistema de destino tenga Windows 7 o superior")
     print("")
-    print("✨ ¡Listo para usar!")
+    print("[DONE] Listo para usar!")
 
 if __name__ == '__main__':
     main()

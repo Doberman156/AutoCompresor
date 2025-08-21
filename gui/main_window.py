@@ -1027,7 +1027,7 @@ Características:
             update_settings = config.get('updates', {})
             
             self.update_config = UpdateConfig(
-                update_server_url=update_settings.get('update_server_url', 'https://api.github.com/repos/usuario/automatizacion-compresion/releases'),
+                update_server_url=update_settings.get('update_server_url', 'https://api.github.com/repos/Doberman156/AutoCompresor/releases'),
                 check_frequency_hours=update_settings.get('check_frequency_hours', 24),
                 auto_download=update_settings.get('auto_download', False),
                 auto_install=update_settings.get('auto_install', False),
