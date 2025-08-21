@@ -62,7 +62,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.12")
+        self.root.title("Automatización de Compresión de Archivos v1.0.14")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -986,6 +986,60 @@ Tipos de archivo encontrados:
         
         messagebox.showinfo("Información del Sistema", info_text)
     
+    def show_statistics(self):
+        """Muestra estadísticas de uso de la aplicación."""
+        try:
+            # Obtener estadísticas del logger
+            session_stats = self.logger.get_session_stats() or {}
+            
+            # Obtener estadísticas generales
+            total_processed = session_stats.get('processed_files', 0)
+            total_failed = session_stats.get('failed_files', 0)
+            total_skipped = session_stats.get('skipped_files', 0)
+            compression_ratio = session_stats.get('compression_ratio', 0)
+            space_saved = session_stats.get('space_saved', 0)
+            success_rate = session_stats.get('success_rate', 0)
+            duration = session_stats.get('duration', '0s')
+            
+            # Formatear el texto de estadísticas
+            stats_text = f"""📊 Estadísticas de Uso - Sesión Actual
+
+📁 Archivos Procesados:
+   • Exitosos: {total_processed}
+   • Errores: {total_failed}
+   • Omitidos: {total_skipped}
+   • Total: {total_processed + total_failed + total_skipped}
+
+⚡ Rendimiento:
+   • Tasa de éxito: {success_rate:.1f}%
+   • Ratio de compresión: {compression_ratio:.1f}%
+   • Espacio ahorrado: {self._format_file_size(space_saved)}
+   • Tiempo transcurrido: {duration}
+
+🔧 Configuración Actual:
+   • Perfil activo: {self.current_profile}
+   • Nivel de compresión: {self.compression_level_var.get()}
+   • Incluir subcarpetas: {'Sí' if self.include_subfolders_var.get() else 'No'}
+
+💡 Tip: Las estadísticas se reinician cada vez que inicias la aplicación."""
+            
+            messagebox.showinfo("📊 Estadísticas de Uso", stats_text)
+            
+        except Exception as e:
+            messagebox.showerror("Error", f"Error al obtener estadísticas: {e}")
+    
+    def _format_file_size(self, size_bytes):
+        """Formatea el tamaño de archivo en formato legible."""
+        if size_bytes == 0:
+            return "0 B"
+        
+        size_names = ["B", "KB", "MB", "GB", "TB"]
+        import math
+        i = int(math.floor(math.log(size_bytes, 1024)))
+        p = math.pow(1024, i)
+        s = round(size_bytes / p, 2)
+        return f"{s} {size_names[i]}"
+
     def show_about(self):
         """Muestra información sobre la aplicación."""
         about_text = """Automatización de Compresión de Archivos v1.0
@@ -993,7 +1047,7 @@ Tipos de archivo encontrados:
 Desarrollado para automatizar el proceso de compresión de archivos
 con nomenclatura personalizable y gestión inteligente de respaldos.
 
-Desarollado por: Jheron Guzman
+Desarrollado por: Jheron Guzman
 
 Características:
 • Compresión individual de archivos
