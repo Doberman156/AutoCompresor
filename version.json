@@ -1,12 +1,12 @@
 {
-  "version": "1.0.22",
+  "version": "1.0.21",
   "build_date": "2025-08-21",
   "build_number": 1755836203,
-  "release_notes": "Versión 1.0.22 con mejoras y correcciones",
+  "release_notes": "Versión 1.0.21 - Corrección de archivos empaquetados en ejecutable",
   "changelog": [
-    "✨ Mejoras en la interfaz de usuario",
-    "🐛 Correcciones de errores menores",
-    "⚡ Optimizaciones de rendimiento",
-    "🔒 Mejoras de seguridad"
+    "🔧 Corrección crítica: version.json empaquetado en ejecutable",
+    "🔧 Corrección crítica: config.json empaquetado en ejecutable",
+    "✅ Ejecutable ahora usa archivos empaquetados correctamente",
+    "🚫 Eliminada generación de archivos externos innecesarios"
   ]
 }

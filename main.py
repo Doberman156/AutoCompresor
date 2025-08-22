@@ -170,7 +170,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 def main():
     """Función principal de la aplicación."""
     try:
-        print("Iniciando Automatización de Compresión de Archivos v1.0.20...")
+        print("Iniciando Automatización de Compresión de Archivos v1.0.21...")
         
         # Verificaciones iniciales
         print("Verificando versión de Python...")
@@ -271,7 +271,7 @@ def show_version():
     """Muestra información de versión."""
     version_info = """
 Automatización de Compresión de Archivos
-Versión: 1.0.0
+Versión: 1.0.21
 Python: {python_version}
 Plataforma: {platform}
 Directorio: {directory}
