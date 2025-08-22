@@ -1,13 +1,12 @@
 {
-  "version": "1.0.21",
-  "build_date": "2025-08-22",
-  "build_number": 1755836044,
-  "release_notes": "Versión 1.0.21 - Corrección crítica de archivos empaquetados en ejecutable",
+  "version": "1.0.22",
+  "build_date": "2025-08-21",
+  "build_number": 1755836203,
+  "release_notes": "Versión 1.0.22 con mejoras y correcciones",
   "changelog": [
-    "🔧 Corrección crítica: Ejecutable ahora encuentra version.json empaquetado correctamente",
-    "🔧 Corrección crítica: Ejecutable ahora encuentra config.json empaquetado correctamente",
-    "✅ Eliminación de generación de archivos externos innecesarios",
-    "🚀 Mejora en la experiencia del usuario con ejecutable autocontenido",
-    "📦 Optimización del sistema de empaquetado con PyInstaller"
+    "✨ Mejoras en la interfaz de usuario",
+    "🐛 Correcciones de errores menores",
+    "⚡ Optimizaciones de rendimiento",
+    "🔒 Mejoras de seguridad"
   ]
 }
