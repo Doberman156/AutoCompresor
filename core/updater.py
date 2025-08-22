@@ -92,7 +92,7 @@ class Updater:
         self.app_dir = Path(sys.executable).parent if getattr(sys, 'frozen', False) else Path.cwd()
         self.temp_dir = Path(tempfile.gettempdir()) / "AutomatizacionCompresion_Updates"
         self.backup_dir = self.app_dir / "backup"
-        self.version_file = self.app_dir / "version.json"
+        self.version_file = self._get_resource_path("version.json")
         
         # Crear directorios necesarios
         self.temp_dir.mkdir(exist_ok=True)
@@ -106,6 +106,20 @@ class Updater:
         self.is_updating = False
         self.last_check = None
         
+    def _get_resource_path(self, filename: str) -> Path:
+        """Obtiene la ruta correcta de un recurso, tanto en desarrollo como en ejecutable empaquetado."""
+        if getattr(sys, 'frozen', False):
+            # Ejecutándose desde ejecutable empaquetado
+            if hasattr(sys, '_MEIPASS'):
+                # PyInstaller: usar _MEIPASS para archivos empaquetados
+                return Path(sys._MEIPASS) / filename
+            else:
+                # Fallback: buscar en el directorio del ejecutable
+                return Path(sys.executable).parent / filename
+        else:
+            # Ejecutándose desde código fuente
+            return Path.cwd() / filename
+    
     def _log(self, level: str, message: str):
         """Registra un mensaje usando el logger si está disponible."""
         if self.logger:

@@ -11,6 +11,42 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.0.21] - 2025-08-22
+
+### 🔧 Corrección Crítica de Archivos Empaquetados en Ejecutable
+
+#### 📦 Problema Crítico Resuelto
+- **Ejecutable autocontenido**: Solucionado problema donde el .exe no encontraba archivos empaquetados
+- **version.json empaquetado**: Corregida lectura de version.json desde el ejecutable compilado
+- **config.json empaquetado**: Corregida lectura de config.json desde el ejecutable compilado
+- **Experiencia del usuario**: Eliminada generación de archivos externos innecesarios
+
+#### ⚡ Mejoras Técnicas Implementadas
+- **build.spec actualizado**: Agregado version.json a la lista de archivos empaquetados
+- **updater.py mejorado**: Implementada función _get_resource_path() para manejar rutas empaquetadas
+- **config_manager.py mejorado**: Agregado soporte para sys._MEIPASS de PyInstaller
+- **Fallback inteligente**: Sistema robusto para diferentes escenarios de ejecución
+
+#### 🚀 Resultados de la Corrección
+- **Versión correcta**: El ejecutable ahora muestra v1.0.21 (no más v1.0.0 por defecto)
+- **Configuración completa**: Usuarios ven todos los perfiles y configuraciones personalizadas
+- **Sin archivos externos**: El ejecutable ya no genera config.json/version.json en el directorio
+- **Experiencia profesional**: Aplicación completamente autocontenida y consistente
+
+### 🔍 Archivos Modificados
+- **build.spec**: Agregado ('version.json', '.') en sección datas
+- **core/updater.py**: Implementada función _get_resource_path() para PyInstaller
+- **core/config_manager.py**: Agregado soporte para archivos empaquetados
+- **version.json**: Actualizado a v1.0.21 con changelog de correcciones
+
+### 🚀 Características Técnicas
+- **Ejecutable**: AutomatizacionCompresion.exe (33.9 MB)
+- **Compatibilidad**: Windows 10/11 (64-bit)
+- **Empaquetado**: Completamente autocontenido con PyInstaller
+- **Experiencia**: Sin archivos externos, configuración interna
+
+---
+
 ## [1.0.20] - 2025-08-21
 
 ### 🔧 Corrección Crítica de Inconsistencias de Versión

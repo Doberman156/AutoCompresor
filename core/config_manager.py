@@ -4,14 +4,14 @@
 Gestor Avanzado de Configuración - Automatización de Compresión de Archivos v1.0.20
 
 Este módulo maneja la carga, guardado y gestión inteligente de configuraciones y perfiles
-de usuario para la aplicación de automatización de compresión.
-Incluye validación de datos, respaldo automático y gestión de múltiples perfiles.
+de usuario con validación automática y soporte para múltiples entornos.
 """
 
 import json
 import os
+import sys
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any, Optional, List
 from datetime import datetime
 
 
@@ -24,9 +24,27 @@ class ConfigManager:
         Args:
             config_file: Ruta al archivo de configuración
         """
-        self.config_file = Path(config_file)
+        self.config_file = Path(self._get_resource_path(config_file))
         self.config_data = {}
         self.load_config()
+    
+    def _get_resource_path(self, relative_path: str) -> str:
+        """Obtiene la ruta correcta para archivos de recursos, tanto en desarrollo como en ejecutable empaquetado.
+        
+        Args:
+            relative_path: Ruta relativa al archivo de recurso
+            
+        Returns:
+            Ruta absoluta al archivo de recurso
+        """
+        try:
+            # PyInstaller crea un directorio temporal y almacena la ruta en _MEIPASS
+            base_path = sys._MEIPASS
+        except AttributeError:
+            # En desarrollo, usar el directorio actual
+            base_path = os.path.abspath(".")
+        
+        return os.path.join(base_path, relative_path)
     
     def load_config(self) -> bool:
         """Carga la configuración desde el archivo JSON con validación de integridad.

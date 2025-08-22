@@ -8,6 +8,7 @@ a = Analysis(
     binaries=[],
     datas=[
         ('config.json', '.'),
+        ('version.json', '.'),
         ('gui', 'gui'),
         ('core', 'core'),
         ('utils', 'utils'),

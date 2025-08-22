@@ -1,12 +1,13 @@
 {
-  "version": "1.0.20",
-  "build_date": "2025-08-21",
-  "build_number": 1755761846,
-  "release_notes": "Versión 1.0.20 - Corrección completa de inconsistencias de versión",
+  "version": "1.0.21",
+  "build_date": "2025-08-22",
+  "build_number": 1755836044,
+  "release_notes": "Versión 1.0.21 - Corrección crítica de archivos empaquetados en ejecutable",
   "changelog": [
-    "🔧 Corrección completa de inconsistencias de versión en toda la aplicación",
-    "🐛 Solución de errores en show_statistics y show_manual",
-    "📝 Sincronización de versiones en GUI, código fuente y documentación",
-    "✅ Estabilización del sistema de actualizaciones"
+    "🔧 Corrección crítica: Ejecutable ahora encuentra version.json empaquetado correctamente",
+    "🔧 Corrección crítica: Ejecutable ahora encuentra config.json empaquetado correctamente",
+    "✅ Eliminación de generación de archivos externos innecesarios",
+    "🚀 Mejora en la experiencia del usuario con ejecutable autocontenido",
+    "📦 Optimización del sistema de empaquetado con PyInstaller"
   ]
 }

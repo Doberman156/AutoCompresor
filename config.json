@@ -2,7 +2,7 @@
   "profiles": {
     "default": {
       "backup_folder": "C:/Users/Usuario/Desktop/respaldo",
-      "naming_pattern": "personalizado",
+      "naming_pattern": "nombre_original",
       "custom_pattern": "",
       "include_subfolders": false,
       "file_filters": [
@@ -11,7 +11,7 @@
       "compression_level": 6,
       "conflict_resolution": "rename",
       "verify_integrity": true,
-      "last_modified": "2025-08-21T02:36:57.610052"
+      "last_modified": "2025-08-21T22:36:57.955148"
     },
     "trabajo": {
       "naming_pattern": "archivo_fecha",
