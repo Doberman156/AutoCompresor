@@ -11,7 +11,7 @@
       "compression_level": 6,
       "conflict_resolution": "rename",
       "verify_integrity": true,
-      "last_modified": "2025-08-21T23:19:16.193367"
+      "last_modified": "2025-08-22T14:46:41.513669"
     },
     "trabajo": {
       "naming_pattern": "archivo_fecha",
@@ -132,5 +132,100 @@
       "*.tar",
       "*.gz"
     ]
+  },
+  "renamer_settings": {
+    "default_templates": {
+      "fotos_fecha": {
+        "name": "Fotos con Fecha",
+        "description": "IMG_YYYYMMDD_001.jpg",
+        "operations": [
+          {
+            "type": "prefix",
+            "value": "IMG_",
+            "enabled": true
+          },
+          {
+            "type": "numbering",
+            "start": 1,
+            "padding": 3,
+            "enabled": true
+          }
+        ]
+      },
+      "documentos_trabajo": {
+        "name": "Documentos de Trabajo",
+        "description": "DOC_nombre_original.pdf",
+        "operations": [
+          {
+            "type": "prefix",
+            "value": "DOC_",
+            "enabled": true
+          },
+          {
+            "type": "case",
+            "case_type": "lower",
+            "enabled": true
+          }
+        ]
+      },
+      "backup_numerado": {
+        "name": "Backup Numerado",
+        "description": "001_archivo_backup.zip",
+        "operations": [
+          {
+            "type": "numbering",
+            "start": 1,
+            "padding": 3,
+            "enabled": true
+          },
+          {
+            "type": "suffix",
+            "value": "_backup",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    "preferences": {
+      "auto_preview": true,
+      "confirm_before_rename": true,
+      "backup_original_names": false,
+      "max_preview_items": 1000,
+      "default_numbering_start": 1,
+      "default_numbering_padding": 3
+    },
+    "last_config": {
+      "source_folder": "",
+      "include_subfolders": false,
+      "file_filter": "todos",
+      "operations": {
+        "prefix": {
+          "enabled": false,
+          "value": ""
+        },
+        "suffix": {
+          "enabled": false,
+          "value": ""
+        },
+        "replace": {
+          "enabled": false,
+          "old": "",
+          "new": ""
+        },
+        "remove": {
+          "enabled": false,
+          "value": ""
+        },
+        "numbering": {
+          "enabled": false,
+          "start": 1,
+          "padding": 3
+        },
+        "case": {
+          "enabled": false,
+          "type": "lower"
+        }
+      }
+    }
   }
 }

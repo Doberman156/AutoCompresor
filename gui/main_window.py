@@ -23,6 +23,7 @@ from core.updater import Updater, UpdateConfig, UpdateInfo
 from utils.validators import validate_compression_config, PathValidator
 from utils.helpers import FileUtils, TimeUtils, create_progress_bar
 from gui.update_dialog import UpdateNotificationDialog, UpdateProgressDialog, UpdateSettingsDialog
+from gui.rename_tab import RenameTab
 
 
 class MainWindow:
@@ -62,7 +63,7 @@ class MainWindow:
         """Configura la interfaz de usuario."""
         # Ventana principal
         self.root = tk.Tk()
-        self.root.title("Automatización de Compresión de Archivos v1.0.21")
+        self.root.title("Automatización de Compresión de Archivos v1.1.0")
         self.root.geometry("1024x768")
         self.root.minsize(800, 600)
         
@@ -81,6 +82,7 @@ class MainWindow:
         self.create_config_tab()
         self.create_progress_tab()
         self.create_profiles_tab()
+        self.create_rename_tab()
         
         # Barra de estado
         self.create_status_bar()
@@ -1277,6 +1279,15 @@ Características:
                 "Error",
                 f"Error al mostrar configuración de actualizaciones:\n{e}"
             )
+    
+    def create_rename_tab(self):
+        """Crea la pestaña de renombrado masivo."""
+        try:
+            self.rename_tab = RenameTab(self.notebook, self.config_manager, self.logger)
+            self.logger.log_operation('INFO', "Pestaña de renombrado creada exitosamente")
+        except Exception as e:
+            self.logger.log_operation('ERROR', f"Error creando pestaña de renombrado: {str(e)}")
+            messagebox.showerror("Error", f"Error al crear la pestaña de renombrado: {str(e)}")
     
     def on_closing(self):
         """Maneja el cierre de la aplicación."""

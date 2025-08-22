@@ -11,6 +11,122 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ---
 
+## [1.2.0] - 2025-01-21
+
+### 🔧 Mejoras Mayores en Renombrado Masivo y Control de Ceros Numéricos
+
+#### 🎯 Nueva Funcionalidad: Control de Ceros Numéricos
+- **Agregar ceros**: Función para agregar ceros a la izquierda de números en nombres de archivo
+- **Quitar ceros**: Función para eliminar ceros a la izquierda de números existentes
+- **Control total**: El usuario decide cuándo aplicar o remover padding numérico
+- **Ejemplo práctico**: RIPS_M7738.json → RIPS_M007738.json (y viceversa)
+- **Configuración flexible**: Longitud configurable de 2 a 10 dígitos
+- **Aplicación inteligente**: Solo modifica números, preserva texto y extensiones
+
+#### 📱 Mejoras de Interfaz de Usuario
+- **Botones siempre visibles**: Reorganizada interfaz para que los controles principales estén siempre accesibles
+- **Problema resuelto**: Botones ya no se ocultan cuando la ventana está minimizada
+- **Mejor flujo**: Controles principales integrados en la sección de selección de archivos
+- **Experiencia optimizada**: Interfaz más intuitiva y funcional en cualquier tamaño de ventana
+- **Layout mejorado**: Eliminada sección de control inferior, optimizado uso del espacio vertical
+
+#### ⚙️ Mejoras Técnicas del Sistema de Padding
+- **Función pad_numbers mejorada**: Ahora aplica padding SIEMPRE, sin importar la longitud actual
+- **Nueva función remove_padding**: Elimina ceros a la izquierda de todos los números
+- **Controles UI separados**: Opciones independientes para agregar vs quitar ceros
+- **Integración completa**: Ambas funciones integradas en el sistema de operaciones
+- **Configuración persistente**: Guarda y carga preferencias automáticamente
+
+#### 🔍 Casos de Uso Específicos
+- **Archivos RIPS**: Estandarización de numeración en archivos de facturación
+- **Documentos numerados**: Organización consistente de archivos empresariales
+- **Fotos digitales**: Numeración uniforme de imágenes (IMG_45 → IMG_000045)
+- **Control de versiones**: Gestión de numeración en archivos versionados
+- **Cualquier archivo numerado**: Aplicable a todos los tipos de archivo
+
+#### 🚀 Beneficios de la Actualización
+- **Control total**: Usuario decide exactamente cuándo agregar o quitar ceros
+- **Flexibilidad máxima**: Funciona con cualquier patrón de numeración
+- **Interfaz accesible**: Controles siempre visibles independientemente del tamaño de ventana
+- **Seguridad**: Vista previa completa antes de aplicar cambios
+- **Compatibilidad**: Funciona junto con todas las demás operaciones de renombrado
+
+### 🔧 Archivos Modificados
+- **utils/rename_operations.py**: Funciones pad_numbers y remove_padding mejoradas
+- **gui/rename_tab.py**: Interfaz reorganizada y nuevos controles de padding
+- **core/renamer.py**: Integración de nuevas operaciones de padding
+- **version.json**: Actualizado a v1.2.0 con changelog completo
+
+---
+
+## [1.1.0] - 2025-08-22
+
+### 🆕 Nueva Funcionalidad Mayor: Renombrador Masivo de Archivos
+
+#### 📝 Renombrado Masivo Completo
+- **Nueva pestaña**: Pestaña "📝 Renombrar" integrada en la aplicación principal
+- **Operaciones múltiples**: Prefijo, Sufijo, Reemplazar texto, Eliminar texto, Numeración automática
+- **Cambio de mayúsculas**: Conversión a minúsculas, mayúsculas, título y formato oración
+- **Vista previa en tiempo real**: Visualización instantánea de cambios antes de aplicar
+- **Detección de conflictos**: Identificación automática de nombres duplicados y archivos existentes
+
+#### 🎨 Operaciones Avanzadas de Texto
+- **Eliminación de acentos**: Conversión automática de caracteres especiales
+- **Snake_case**: Conversión a formato snake_case para programación
+- **Limpieza de nombres**: Eliminación de caracteres no válidos automáticamente
+- **Eliminación de números**: Opción para remover todos los números de los nombres
+- **Validación inteligente**: Verificación de nombres válidos según estándares del sistema
+
+#### 📋 Plantillas Predefinidas
+- **Fotos con fecha**: Formato IMG_YYYYMMDD_001.jpg para organización de imágenes
+- **Documentos de trabajo**: Formato DOC_nombre_original.pdf para archivos empresariales
+- **Backup numerado**: Formato 001_archivo_backup.zip para sistemas de respaldo
+- **Limpieza básica**: Eliminación automática de espacios y caracteres especiales
+- **Control de versiones**: Formato archivo_v001.ext para versionado
+
+#### 🔍 Soporte Universal de Archivos
+- **Todos los tipos**: Soporte completo para cualquier extensión de archivo
+- **Archivos ZIP**: Renombrado específico de archivos comprimidos (.zip, .rar, .7z)
+- **Preservación de extensiones**: Mantenimiento automático de extensiones originales
+- **Filtros inteligentes**: Selección por tipo de archivo (documentos, imágenes, office, etc.)
+- **Procesamiento recursivo**: Opción para incluir subcarpetas en el renombrado
+
+#### ⚙️ Integración Completa
+- **Configuración persistente**: Guardado automático de preferencias y configuraciones
+- **Sistema de logging**: Registro completo de todas las operaciones de renombrado
+- **Arquitectura consistente**: Integración perfecta con el sistema existente
+- **Reutilización de componentes**: Uso del ConfigManager, Logger y FileManager existentes
+- **Estilo visual unificado**: Interfaz coherente con el resto de la aplicación
+
+#### 🛡️ Seguridad y Control
+- **Modo simulación**: Opción "Simulación" para probar cambios sin aplicarlos
+- **Confirmación de cambios**: Diálogos de confirmación antes de renombrar archivos
+- **Manejo de errores**: Gestión robusta de errores con logs detallados
+- **Estadísticas en tiempo real**: Contadores de archivos totales, válidos y conflictos
+- **Progreso visual**: Barra de progreso y estado durante operaciones masivas
+
+### 🔧 Mejoras Técnicas
+- **Nuevos módulos**: core/renamer.py, utils/rename_operations.py, gui/rename_tab.py
+- **Configuración extendida**: Nueva sección renamer_settings en config.json
+- **Versión actualizada**: Incremento a v1.1.0 para reflejar funcionalidad mayor
+- **Documentación completa**: Comentarios y documentación técnica exhaustiva
+
+### 🚀 Casos de Uso Principales
+- **Organización de fotos**: Renombrado masivo de imágenes con fechas y numeración
+- **Gestión empresarial**: Estandarización de nombres de documentos corporativos
+- **Sistemas de backup**: Organización y numeración de archivos de respaldo
+- **Desarrollo de software**: Limpieza y estandarización de nombres de archivos
+- **Archivos comprimidos**: Renombrado específico de archivos .zip y otros formatos
+
+### 📊 Estadísticas de Implementación
+- **Líneas de código**: +1,200 líneas de código nuevo
+- **Archivos creados**: 3 nuevos módulos principales
+- **Funcionalidades**: 15+ operaciones de renombrado diferentes
+- **Plantillas**: 5 plantillas predefinidas incluidas
+- **Compatibilidad**: 100% compatible con funcionalidad existente
+
+---
+
 ## [1.0.21] - 2025-08-22
 
 ### 🔧 Corrección Crítica de Archivos Empaquetados en Ejecutable
