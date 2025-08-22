@@ -1,20 +1,12 @@
 {
-  "version": "1.2.0",
-  "build_date": "2025-01-21",
-  "build_number": 1755892046,
-  "release_notes": "Versión 1.2.0 - Mejoras en Renombrado Masivo y Control de Ceros Numéricos",
+  "version": "1.2.1",
+  "build_date": "2025-08-22",
+  "build_number": 1755892202,
+  "release_notes": "Versión 1.2.1 con mejoras y correcciones",
   "changelog": [
-    "🆕 Nueva pestaña: Renombrador Masivo de Archivos",
-    "📝 Operaciones: Prefijo, Sufijo, Reemplazar, Eliminar, Numeración",
-    "🎨 Cambio de mayúsculas/minúsculas y operaciones avanzadas",
-    "👁️ Vista previa en tiempo real con detección de conflictos",
-    "📋 Plantillas predefinidas para casos comunes",
-    "💾 Configuración persistente y plantillas personalizables",
-    "🔍 Soporte para todos los tipos de archivo incluyendo .zip",
-    "⚙️ Integración completa con el sistema de configuración existente",
-    "🔧 NUEVO: Control de Ceros Numéricos - Agregar/Quitar ceros a números",
-    "📱 MEJORADO: Interfaz reorganizada con botones siempre visibles",
-    "🎯 MEJORADO: Control total sobre padding numérico (ej: RIPS_M7738 → RIPS_M007738)",
-    "✨ NUEVO: Función para eliminar ceros a la izquierda de números"
+    "✨ Mejoras en la interfaz de usuario",
+    "🐛 Correcciones de errores menores",
+    "⚡ Optimizaciones de rendimiento",
+    "🔒 Mejoras de seguridad"
   ]
 }
